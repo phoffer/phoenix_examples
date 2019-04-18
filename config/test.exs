@@ -13,6 +13,6 @@ config :logger, level: :warn
 config :my_app, MyApp.Repo,
   # username: "postgres",
   # password: "postgres",
-  database: "my_app_test",
+  database: "my_app_test_citext",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

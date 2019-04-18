@@ -70,6 +70,6 @@ config :phoenix, :plug_init_mode, :runtime
 config :my_app, MyApp.Repo,
   # username: "postgres",
   # password: "postgres",
-  database: "my_app_dev",
+  database: "my_app_dev_citext",
   hostname: "localhost",
   pool_size: 10
