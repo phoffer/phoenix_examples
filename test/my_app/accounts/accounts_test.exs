@@ -38,6 +38,12 @@ defmodule MyApp.AccountsTest do
       assert {:error, %Ecto.Changeset{}} = Accounts.create_user(@invalid_attrs)
     end
 
+    test "can't duplicate case insensitive emails" do
+      email = "ASDF@example.com"
+      user = Accounts.create_user(%{email: email})
+      assert {:error, %Ecto.Changeset{errors: [email: {"has already been taken", _}]}} = Accounts.create_user(%{email: String.downcase(email)})
+    end
+
     test "update_user/2 with valid data updates the user" do
       user = user_fixture()
       assert {:ok, %User{} = user} = Accounts.update_user(user, @update_attrs)
